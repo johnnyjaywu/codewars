@@ -9,7 +9,7 @@ A repo of all CodeWars coding challenges
 **Tech used:** Javascript
 
 ## Optimizations
-To Do: built-in unit testing
+To Do: set up [Mocha](https://mochajs.org/) test framework
 
 ## Lessons Learned:
 
