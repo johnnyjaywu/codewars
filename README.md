@@ -1,16 +1,12 @@
 # [CodeWars Challenges](https://www.codewars.com/users/johnnyjaywu)
 
-
-
 ![badges](https://www.codewars.com/users/johnnyjaywu/badges/large)
 
+A repo of all CodeWars coding challenges
 
 ## How It's Made:
 
-
 **Tech used:** Javascript
-
-A repo of all CodeWars coding challenges
 
 ## Optimizations
 To Do: built-in unit testing
