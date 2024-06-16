@@ -1,6 +1,6 @@
 # [CodeWars Challenges](https://www.codewars.com/users/johnnyjaywu)
 
-![badges](https://www.codewars.com/users/johnnyjaywu/badges/large)
+[![badges](https://www.codewars.com/users/johnnyjaywu/badges/large)](https://www.codewars.com/users/johnnyjaywu)
 
 A repo of all CodeWars coding challenges
 
