@@ -41,3 +41,64 @@
 // Good luck!
 
 // After you complete this kata, you may try yourself at Decode the Morse code, advanced.
+
+const MORSE_CODE = {
+  ".-": "A",
+  "-...": "B",
+  "-.-.": "C",
+  "-..": "D",
+  ".": "E",
+  "..-.": "F",
+  "--.": "G",
+  "....": "H",
+  "..": "I",
+  ".---": "J",
+  "-.-": "K",
+  ".-..": "L",
+  "--": "M",
+  "-.": "N",
+  "---": "O",
+  ".--.": "P",
+  "--.-": "Q",
+  ".-.": "R",
+  "...": "S",
+  "-": "T",
+  "..-": "U",
+  "...-": "V",
+  ".--": "W",
+  "-..-": "X",
+  "-.--": "Y",
+  "--..": "Z",
+  "-----": "0",
+  ".----": "1",
+  "..---": "2",
+  "...--": "3",
+  "....-": "4",
+  ".....": "5",
+  "-....": "6",
+  "--...": "7",
+  "---..": "8",
+  "----.": "9",
+};
+
+const decodeMorse = function (morseCode) {
+  // Your code here
+  // You can use MORSE_CODE[morse]
+  //let str = morseCode.replace("   ", "  ");
+  //   let str = morseCode.split(" ");
+  //   str = str.map((morse) => (morse ? MORSE_CODE[morse] : " "));
+  //   str = str.join("");
+  //   str = str.replace(/  +/g, " ");
+  return morseCode
+    .split(" ")
+    .map((morse) => (morse ? MORSE_CODE[morse] : " "))
+    .join("")
+    .trim()
+    .replace(/  +/g, " ");
+};
+
+console.log(decodeMorse("   .... . -.--   ")); // 'HEY'
+console.log(decodeMorse(".... . -.--   .--- ..- -.. .")); // 'HEY JUDE'
+console.log(decodeMorse("...   ---   ...")); // 'S O S'
+console.log(decodeMorse("   .   . ")); // 'E E'
+console.log(decodeMorse("    .... . -.--                .--- ..- -.. .         ")); // 'HEY JUDE'
