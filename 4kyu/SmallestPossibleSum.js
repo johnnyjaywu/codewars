@@ -30,35 +30,72 @@
 // There are performance tests consisted of very big numbers and arrays of size at least 30000. Please write an efficient algorithm to prevent timeout.
 
 function solution(numbers) {
-  let length = numbers.length;
   // check array if transformation is required
+  let length = numbers.length;
   if (!length) return 0;
   if (length == 1) return numbers[0];
 
-  //   // sort descending
-  //   let sorted = numbers.sort((a, b) => b - a);
-  //   let i = 0;
+  // Basic solution:
+  // let sorted = numbers.sort((a, b) => b - a);
+  // let i = 0;
 
-  //   // loop until all numbers are same
-  //   while (i < length - 1) {
-  //     if (sorted[i] > sorted[i + 1]) {
-  //       sorted[i] -= sorted[i + 1]; // transform
-  //       sorted = sorted.sort((a, b) => b - a); // re-sort
-  //       i = 0; // start from top
-  //     }
-  //     else ++i;
+  // while (i < length - 1) {
+  //   if (sorted[i] > sorted[i + 1]) {
+  //     sorted[i] -= sorted[i + 1]; // transform
+  //     sorted = sorted.sort((a, b) => b - a); // re-sort
+  //     i = 0; // start from top
   //   }
+  //   else ++i;
+  // }
 
-  //   return sorted[0] * length;
+  // return sorted[0] * length;
 
-  // TODO: optimization
-  // 1. if lowest number is 1, we can early out
-  // 2. if the lowest number is 2, AND all the numbers are even, we can assume LCD is 2
-  // 3. otherwise, find the LCD OR 1
-  let sorted = numbers.sort((a, b) => b - a);
-  if (sorted[length - 1] == 1)
-    return length;
+  // TODO: Optimized solution
 
+  // 1. loop and perform modulo transformation of 2 values
+  // *at any point, if the number is 1, we can early out
+
+  // 2. use modulo to quickly transform the numbers to get their smallest difference
+
+  // 3. once we figure out the smallest value, our result is min * length
+
+  // let min = Math.max(...numbers) % Math.min(...numbers);
+  // if (min == 0) min = Math.min(...numbers);
+
+  // if (min > 1) {
+  //   let i = 0;
+  //   while (i < length) {
+  //     let curr = numbers[i];
+  //     if (curr != min) {
+  //       let remainder = curr > min ? curr % min : min % curr;
+  //       if (remainder != 0) {
+  //         min = remainder;
+  //         if (min == 1)
+  //           return length;
+  //         i = 0;
+  //       } else i++;
+  //     } else i++;
+  //   }
+  // }
+
+  // return min * length;
+
+  const gcd = (a,b)=>a?gcd(b%a,a):b
+  return numbers.reduce(gcd)*numbers.length
 }
 
-console.log(solution([6, 9, 21]));
+console.log(solution([9, 6, 21, 27, 30]));
+console.log(solution([3, 13, 23, 7, 83]));
+console.log(
+  solution([
+    1487647, 351232, 1606087, 1026823, 105903, 34300, 1487647, 77175, 297052,
+    1246588,
+  ])
+);
+
+console.log(
+  solution([
+    33280951, 21398839, 25009600, 44144496, 17169856, 10682991, 7565404,
+    33902044, 59533056, 72581751, 77532631,
+  ])
+);
